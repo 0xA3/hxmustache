@@ -28,11 +28,11 @@ class Mustache {
         if (Std.is(value, Float))
             return if ((value : Float) != 0) KBasic else KFalsy;
 
-        var str = Std.instance(value, String);
+        var str = Std.downcast(value, String);
         if (str != null)
             return if (str.length > 0) KObject(str) else KFalsy;
 
-        var arr = Std.instance(value, Array);
+        var arr = Std.downcast(value, Array);
         if (arr != null)
             return if (arr.length > 0) KArray(arr) else  KFalsy;
 
